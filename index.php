@@ -1,7 +1,6 @@
 <?php
 include 'config.php';
 $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY ap_group_id ASC");
-
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +32,6 @@ $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY
 
     </head>
     <body id="body" data-spy="scroll" data-target="#scollNavbar">
-
         <header class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -46,7 +44,6 @@ $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-
                 </ul>
                 <!-- <ul class="nav navbar-nav navbar-right">
                     <li><a href="addApi.php" class="btn-default" style="margin-right: 20px;">Add API</a></li>
@@ -59,7 +56,6 @@ $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY
                 <div class="col-md-2" id="scollNavbar" style="padding: 0;position: fixed;height: 100%;z-index: 9999">
                     <ul class="nav nav-list" data-spy="affix" data-offset-bottom="200" style="display: block;background-color:rgb(255,255,255) !important;">
                         <?php
-
                         if(!empty($api_list))
                         {
                             $group_id = 0;
@@ -79,7 +75,6 @@ $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY
                 </div>
                 <div class="col-md-10 col-md-offset-2" style="background:#fff;">
                     <?php
-
                         if(!empty($api_list))
                         {
                             $group_id = 0;
@@ -94,7 +89,7 @@ $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY
                             <p><?= $api['ap_notes']?></p><br>
                                 
                             <h4>Resource URL</h4>
-                            <pre class="prettyprint"><?= API_BASE_URL ?></pre>
+                            <pre class="prettyprint alert-danger"><?= API_BASE_URL ?></pre>
 
                             <h4>Method</h4>
                             <pre class="prettyprint"><?= $api['ap_method'] ?></pre>
@@ -133,9 +128,6 @@ $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY
                             }    
                         }
                     ?> 
-
-                    
-                                
                 </div>
             </div>
         </div>
@@ -152,7 +144,6 @@ $api_list  = $db->query("SELECT * FROM ".TBL_APIS." WHERE ap_status = 1 ORDER BY
 
                 // Add scrollspy to <body>
                 $('body').scrollspy({target: ".navbar", offset: 50});
-
 
                 $(".nav-list a").on('click', function () {
                     var scroll = 0;
